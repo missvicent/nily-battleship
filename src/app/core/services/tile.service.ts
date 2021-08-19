@@ -1,26 +1,36 @@
 import { Injectable } from '@angular/core';
-import { IBoard } from 'src/app/shared/models/board';
-import { BoardService } from './board.service';
+import { IBoard, ITile } from 'src/app/shared/models/board';
+import { GeneratorService } from './generator.service';
+import { ShipService } from './ship.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TileService {
+  constructor(private generatorService: GeneratorService, private shipService: ShipService) {}
 
-  constructor(private boardService: BoardService) { }
-
-  placeShips(position: number): any {
-    let orientation = '';
-    const shipSize = this.selectShipSize(position);
-    const shipOrientation = Math.floor(Math.random() * 2);
-    shipOrientation === 0 ? orientation = 'horizontal' : orientation = 'vertical';
-    return this.boardService.assignTiles(shipSize, orientation);
+  checkIfTileIsInUse(board: IBoard[], orientation: boolean, shipSize: number, tile: ITile): boolean {
+    return orientation
+      ? this.checkHorizontalTiles(shipSize, tile, board)
+      : this.checkVerticalTiles(shipSize, tile, board);
   }
 
-  selectShipSize(value: number): number {
-    if (value === 10) { return 4; }
-    if (value >= 9 && value <= 8) { return 3; }
-    if (value >= 7 && value <= 5) { return 2; }
-    return 1;
+  checkHorizontalTiles(shipSize: number, tile: ITile, board: IBoard[]): boolean {
+    const ships = this.shipService.generateShips(shipSize);
+    const taken = ships.filter((ship, i) => !board[tile.col][tile.row + i] || board[tile.col][tile.row + i]?.used);
+    return taken.length > 0;
+  }
+
+  checkVerticalTiles(shipSize: number, tile: ITile, board: IBoard[]): boolean {
+    const ships = this.shipService.generateShips(shipSize);
+    const taken = ships.filter((ship, i) => !board[tile.col + i] || board[tile.col + i][tile.row]?.used);
+    return taken.length > 0;
+  }
+
+  chooseTile(board: Array<any>): ITile {
+    const letter = this.generatorService.selectRandomRow().toUpperCase();
+    const col = this.generatorService.selectRandomColumn();
+    const row = board[col].findIndex((element: any) => element.row === letter);
+    return { col, letter, row };
   }
 }

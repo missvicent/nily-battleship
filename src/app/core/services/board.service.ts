@@ -1,100 +1,66 @@
 import { Injectable } from '@angular/core';
-import { IBoard } from 'src/app/shared/models/board';
-import { IShip } from 'src/app/shared/models/ships';
-import { EdgeService } from './edge.service';
+import { IBoard, ITile } from 'src/app/shared/models/board';
+import { ShipService } from './ship.service';
+import { TileService } from './tile.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BoardService {
-
   board = [];
-  locations: any = [];
-  numShips = 10;
-  ships: IShip[] = [];
-  horizontalEge = [];
-  verticalEdge = [];
+  edges = [];
+  ships = [];
 
-  constructor(private edgeService: EdgeService) {}
+  constructor(private shipService: ShipService, private tileService: TileService) {}
 
-  assignTiles(shipSize: number, orientation: string): void {
-    this.chooseTile(orientation, shipSize);
-  }
-
-  chooseTile(orientation: string, shipSize: number): void {
-    const letter = (this.selectRandomRow()).toUpperCase();
-    const col = this.selectRandomColumn();
-    const row = this.board[col].findIndex((element: any) => element.row === letter);
-    this.checkCollision(col, row, shipSize, orientation);
-  }
-
-
-  checkCollision(col: number, row: number, shipSize: number, orientation: string): boolean {
-    const tile = this.board[col][row].tile;
-    const isOnEdge = this.edgeService.horizonatalEdge.find(elem => elem.tile = tile);
-    console.log(isOnEdge, this.edgeService.horizonatalEdge);
-    for (let i = 0; i < shipSize; i++) {
-      if (this.board[col][row + 1].used || row + 1 > 9) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  checkHorizonatEdgeAndTile(col: number, row: number, shipSize: number, orientation: string) {
-    console.log(row, col)
-    if (orientation === 'vertical' && shipSize > 1) {
-      
-    }
-  }
-
-  checkHorizontalCollision(col: number, row: number, shipSize: number): boolean {
-    let i = shipSize;
-    while (i--) {
-      if (this.board[col + 1][row].used) {
-        return true;
-      }
-      return false;
-    }
-  }
-
-  isAHorizontalEdge(shipSize: number, row: number, col: number): boolean {
-    if (shipSize > 1) {
-
-    }
-    return true;
-    // right todas laa linea a la derecha - horizontal && shipSize > 1
-    // bottom toda la linea si es vertical && shipSize > 1
-  }
-
-
-  selectRandomRow(): string {
-    return String.fromCharCode(97 + Math.floor(Math.random() * 10));
-  }
-
-  selectRandomColumn(): number {
-    return Math.floor(Math.random() * 10);
-  }
-
-  createBoard(size: number = 10): void {
-    const shipsNum = Array(size).fill([]);
+  createBoard(size = 10): void {
+    const shipsNum = this.shipService.generateShips(size);
     shipsNum.forEach((row, i) => {
-      let tiles = [];
-      shipsNum.forEach((col, j) => { 
-        tiles[j] =  {
+      const tiles = [];
+      shipsNum.forEach((col, j) => {
+        tiles[j] = {
           row: String.fromCharCode(65 + j),
           status: '',
-          tile: parseInt(`${i}${j}`),
+          tile: parseInt(`${i}${j}`, 10),
           used: false,
         };
       });
       this.board[i] = tiles;
     });
-    console.log(this.board)
   }
 
   getBoard(): IBoard[] {
     return this.board;
   }
+  assignBoardTiles(shipSize: number, orientation: boolean): any {
+    const tile = this.tileService.chooseTile(this.board);
+    const isThereACollision = this.shipService.checkCollision(this.board, shipSize, orientation, tile);
+    const isTileInUse = this.tileService.checkIfTileIsInUse(this.board, orientation, shipSize, tile);
+    if (!isThereACollision && !isTileInUse) {
+      return this.placeShipsOnTheBoard(shipSize, tile, orientation);
+    }
+    return this.assignBoardTiles(shipSize, !orientation);
+  }
 
+  placeShips(position: number): any {
+    const shipSize = this.shipService.selectShipSize(position);
+    const shipOrientation = Math.floor(Math.random() * 2);
+    return this.assignBoardTiles(shipSize, !!shipOrientation);
+  }
+
+  placeShipsOnTheBoard(shipSize: number, tile: ITile, orientation: boolean): void {
+    const places = this.shipService.generateShips(shipSize);
+    const tiles = [];
+    places.forEach((place, i) => {
+      if (orientation) {
+        this.board[tile.col][tile.row + i].used = true;
+        tiles.push(this.board[tile.col][tile.row + i]);
+      } else {
+        this.board[tile.col + i][tile.row].used = true;
+        tiles.push(this.board[tile.col + i][tile.row]);
+      }
+    });
+    const ship = this.shipService.createShip(tiles, places.length);
+    this.ships.push(ship);
+  }
 }

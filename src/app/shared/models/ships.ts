@@ -1,11 +1,9 @@
+import { IBoard } from './board';
+
 export interface IShip {
-    size: number;
-    locations: ILocations[];
+  name: string;
+  hit: number;
+  size: number;
+  status: string;
+  tiles: IBoard[];
 }
-
-export interface ILocations {
-    status: string;
-    xPosition: string;
-    yPosition: string;
-}
-
