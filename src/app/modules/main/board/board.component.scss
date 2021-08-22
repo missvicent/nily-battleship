@@ -1,0 +1,47 @@
+@import "~src/styles/styles.scss";
+.board-container {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-image: url('/assets/ocean.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $beige;
+
+    .board {
+        height: 75vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hit {
+        background-color: $lavander-pink-hover;
+    }
+}
+
+.tile {
+    width: 9%;
+    height: 9%;
+    background-color: $blue;
+    border: solid 1px $border;
+}
+
+.tile-info {
+    color: $white;
+    font-weight: bold;
+    width: 9%;
+    height: 9%;
+    background-color: $lavander-pink-hover;
+}
+
+@media (min-width: 1200px) {
+    .board-container {
+        .board {
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+    }
+}

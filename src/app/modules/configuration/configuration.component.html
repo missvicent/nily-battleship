@@ -1,1 +1,20 @@
-<p>configuration works!</p>
+<div class="configuration" fxLayout="column" fxLayoutAlign="center center">
+    <div class="text">Please select a configuration</div>
+    <mat-radio-group class="choose" aria-label="Select an option">
+        <mat-radio-button 
+            *ngFor="let option of options" 
+            (change)="onChange($event.value)"  
+            class="choose-config" 
+            value="{{option.value}}">
+            {{option.name}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <ng-container [ngSwitch]="true">
+        <div *ngSwitchCase="customConfig === 'turn'">
+            <app-enter-turns></app-enter-turns>
+        </div>
+        <div *ngSwitchCase="customConfig === 'level'">
+            <app-choose-a-level></app-choose-a-level>
+        </div>
+    </ng-container>
+</div>

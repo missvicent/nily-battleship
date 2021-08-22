@@ -24,7 +24,7 @@ export class ShipService {
       hit: 0,
       name: this.getShipName(size - 1),
       size,
-      status: '',
+      destroyed: false,
       tiles,
     };
   }

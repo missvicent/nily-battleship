@@ -1,0 +1,28 @@
+@import "~src/styles/styles.scss";
+
+.choose {
+    @include background;
+
+    button {
+        text-align: center;
+    }
+
+    .choose-button {
+        padding-right: 1.5em;
+        padding-bottom: 1.5em;
+        text-align: end;
+    }
+
+    .choose-level {
+        padding: 1em;
+    }
+}
+
+
+@media (min-width: $break-point-sm) {
+    .choose {
+      min-width: 550px;
+      max-width: 550px;
+    }
+  } 
+  

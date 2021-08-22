@@ -5,8 +5,25 @@ import { WelcomeComponent } from './modules/welcome/welcome.component';
 const routes: Routes = [
   {
     path: '',
-    component: WelcomeComponent
-  }
+    component: WelcomeComponent,
+  },
+  {
+    path: 'configuration',
+    loadChildren: () => import('./modules/configuration/configuration.module').then((m) => m.ConfigurationModule),
+  },
+  {
+    path: 'game',
+    loadChildren: () => import('./modules/game/game.module').then((m) => m.GameModule),
+  },
+  {
+    path: 'play',
+    loadChildren: () => import('./modules/main/main.module').then((m) => m.MainModule),
+  },
+  {
+    path: '**',
+    redirectTo: '/',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

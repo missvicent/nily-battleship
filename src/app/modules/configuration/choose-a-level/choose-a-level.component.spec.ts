@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GameOverComponent } from './game-over.component';
+import { ChooseALevelComponent } from './choose-a-level.component';
 
-describe('GameOverComponent', () => {
-  let component: GameOverComponent;
-  let fixture: ComponentFixture<GameOverComponent>;
+describe('ChooseALevelComponent', () => {
+  let component: ChooseALevelComponent;
+  let fixture: ComponentFixture<ChooseALevelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GameOverComponent],
+      declarations: [ChooseALevelComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GameOverComponent);
+    fixture = TestBed.createComponent(ChooseALevelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

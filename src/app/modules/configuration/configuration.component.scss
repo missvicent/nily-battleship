@@ -1,0 +1,26 @@
+@import "~src/styles/styles.scss";
+.configuration {
+    background-image: url('/assets/sea.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $beige;
+    height: 100vh;
+    width: 100%;
+    .choose {
+        font-size: 1.2em;
+        padding: 20px;
+        .choose-config {
+            padding: 1rem;
+        }
+    }
+    .text {
+        color: $white;
+        font-size: 2rem;
+        padding: 40px;
+        text-transform: uppercase;
+        line-height: 1em;
+    }
+    
+}

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GameOverComponent } from './game-over.component';
+import { ErrorMsgComponent } from './error-msg.component';
 
-describe('GameOverComponent', () => {
-  let component: GameOverComponent;
-  let fixture: ComponentFixture<GameOverComponent>;
+describe('ErrorMsgComponent', () => {
+  let component: ErrorMsgComponent;
+  let fixture: ComponentFixture<ErrorMsgComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GameOverComponent],
+      declarations: [ErrorMsgComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GameOverComponent);
+    fixture = TestBed.createComponent(ErrorMsgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

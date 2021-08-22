@@ -1,0 +1,22 @@
+@import "~src/styles/styles.scss";
+.turns-form {
+    @include background-input;
+    padding: 20px;
+  }
+
+  .turn-button {
+    padding-top: 1em;
+    text-align: end;
+  }
+  
+  .turns-input {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+@media (min-width: $break-point-sm) {
+  .turns-form {
+    min-width: 500px;
+    max-width: 500px;
+  }
+} 

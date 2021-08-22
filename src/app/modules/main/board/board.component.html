@@ -1,0 +1,25 @@
+<div class="board-container">
+  <app-score [score]="score" [ships]="ships.length" [turns]="turns" [remaining]="turnsCounter"></app-score>
+  <table class="board">
+    <thead>
+      <tr>
+          <th class="tile-info"></th>
+          <th class="tile-info" *ngFor="let tiles of board; let i = index">
+            {{getLetter(i)}}
+          </th>
+      </tr>
+  </thead>
+    <tbody> 
+      <tr *ngFor="let tiles of board; let i = index">
+        <td class="tile-info">{{i + 1}}</td>
+        <td class="tile" 
+          [ngClass]="{'tile': tile.status === '', 'hit': tile.status === 'hit' }" 
+          *ngFor="let tile of tiles; let j = index" 
+          (click)="onClick(tile, i, j)"
+        >
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+</div>
+

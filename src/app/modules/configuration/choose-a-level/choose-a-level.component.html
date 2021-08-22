@@ -1,0 +1,17 @@
+<div class="choose" fxLayout="column">
+    <mat-radio-button 
+        *ngFor="let option of options" 
+        (change)="onChange($event.value)"  
+        class="choose-level" 
+        value="{{option.value}}">
+        {{option.name}}
+    </mat-radio-button>
+    <div class="choose-button">
+        <button 
+            [disabled]="!optionSelected" 
+            mat-raised-button color="accent" 
+            (click)="onClick()">
+            CONTINUE
+        </button>
+    </div>
+</div>
