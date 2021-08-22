@@ -1,0 +1,31 @@
+@import "~src/styles/styles.scss";
+.score {
+    color: $white;
+    background-color: $lavander-pink-hover;
+    text-align: center;
+    .marker {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 0.775rem;
+        height: 3rem;
+        justify-content: center;
+        line-height: 1rem;
+        opacity: 0.8;
+        padding: 0;
+        text-transform: uppercase;
+        width: 3rem;
+    }
+}
+
+@media (min-width: $break-point-md) {
+    .score {
+        .marker {
+            font-size: 2rem;
+            height: 6rem;
+            line-height: 2.5rem;
+            width: 6rem;
+        }
+    }
+}
