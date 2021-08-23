@@ -1,1 +1,4 @@
-<app-board [board]="board"></app-board>
+<ng-container *ngIf="gameOver">
+    <app-game-over></app-game-over>
+</ng-container>
+<app-board [board]="board" (gameIsOver)="isGameOver($event)"></app-board>

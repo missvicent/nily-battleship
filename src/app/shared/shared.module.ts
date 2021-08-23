@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MODULES = [
   CommonModule,
@@ -17,10 +19,11 @@ const MODULES = [
   MatInputModule,
   MatButtonModule,
   MatRadioModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({
-  declarations: [ErrorMsgComponent],
+  declarations: [ErrorMsgComponent, NotificationComponent],
   imports: MODULES,
   exports: [
     CommonModule,
@@ -32,6 +35,7 @@ const MODULES = [
     MatButtonModule,
     MatRadioModule,
     ErrorMsgComponent,
+    MatSnackBarModule,
   ],
 })
 export class SharedModule {}

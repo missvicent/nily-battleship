@@ -1,0 +1,20 @@
+<div class="game" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="100">
+        <p class="game-over">GAME OVER</p>
+    </div>
+    <div fxFlex="100" class="play-again">
+        <button 
+            type="button"
+            mat-raised-button color="basic" 
+            (click)="onClick('game/list')">
+            GAMES
+        </button>
+        <button 
+            class="play-button"
+            type="button"
+            mat-raised-button color="accent" 
+            (click)="onClick('configuration')">
+            PLAY AGAIN !!!
+    </button>
+    </div>
+</div>

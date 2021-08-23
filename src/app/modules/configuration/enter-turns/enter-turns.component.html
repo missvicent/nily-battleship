@@ -1,4 +1,4 @@
-<form class="turns-form" #turnsForm="ngForm">
+<form class="turns-form">
   <mat-form-field class="turns-input">
     <mat-label>Number of turns</mat-label>
     <input matInput [(ngModel)]="turns" name="turn" type="tel" pattern="^[0-9]+" #turn="ngModel">
@@ -6,6 +6,7 @@
   <app-error-msg [error]="turn.errors" number="true"></app-error-msg>
   <div class="turn-button">
     <button 
+      type="button"
       [disabled]="shouldItBeDisabled(turn.errors)" 
       mat-raised-button color="accent" 
       (click)="onClick()">

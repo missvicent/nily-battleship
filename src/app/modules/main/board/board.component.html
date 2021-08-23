@@ -1,6 +1,11 @@
 <div class="board-container">
-  <app-score [score]="score" [ships]="ships.length" [turns]="turns" [remaining]="turnsCounter"></app-score>
-  <table class="board">
+  <app-score 
+    [score]="score" 
+    [ships]="ships.length" 
+    [turns]="turns" 
+    [remaining]="turnsCounter" 
+  ></app-score>
+  <table class="board" [ngClass]="{'gameover': gameOver}">
     <thead>
       <tr>
           <th class="tile-info"></th>
@@ -13,7 +18,7 @@
       <tr *ngFor="let tiles of board; let i = index">
         <td class="tile-info">{{i + 1}}</td>
         <td class="tile" 
-          [ngClass]="{'tile': tile.status === '', 'hit': tile.status === 'hit' }" 
+          [ngClass]="{'tile': tile.status === '', 'hit': tile.status === 'hit', 'hit-ship': tile.status === 'hit' && tile.used }" 
           *ngFor="let tile of tiles; let j = index" 
           (click)="onClick(tile, i, j)"
         >

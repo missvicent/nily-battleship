@@ -1,25 +1,24 @@
-import { SimpleChanges } from '@angular/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { TurnService } from 'src/app/core/services/turn.service';
 
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
-  styleUrls: ['./score.component.scss']
+  styleUrls: ['./score.component.scss'],
 })
-export class ScoreComponent {
+export class ScoreComponent implements OnInit {
+  @Input() ships = 0;
+  @Input() remaining = 0;
+  @Input() turns = 0;
+  @Input() score = 0;
 
-  @Input() ships: number = 0;
-  @Input() remaining: number = 0;
-  @Input() turns: number = 0;
-  @Input() score: number = 0;
+  unlimitedTurns = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private turnService: TurnService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.remaining === 0) {
-     this.router.navigateByUrl('/game/game-over');
-    }
+  ngOnInit(): void {
+    this.unlimitedTurns = this.turnService.infinitiveTurns;
   }
-
 }

@@ -9,10 +9,10 @@
     </div>
     <div fxFlex="25" class="marker">
         <div>Turns</div>
-        <div>{{turns}}</div>
+        <div>{{!unlimitedTurns ? turns : 'Unlimited'}}</div>
     </div>
     <div fxFlex="25" class="marker">
         <div>REMAINING</div>
-        <div>{{remaining}}</div>
+        <div>{{!unlimitedTurns ? remaining : 'Unlimited'}}</div>
     </div>
 </div>

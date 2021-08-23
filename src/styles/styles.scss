@@ -3,3 +3,15 @@
 body {
     margin:  0;
 }
+
+.notification-hit {
+    background-color: $lavander-pink;
+}
+
+.notification-miss {
+    background-color: $rusty-red;
+}
+
+.notification-destroyed {
+    background-color: $pine;
+}

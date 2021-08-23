@@ -9,19 +9,21 @@ import { TurnService } from 'src/app/core/services/turn.service';
   styleUrls: ['./choose-a-level.component.scss'],
 })
 export class ChooseALevelComponent {
-
   options = LEVEL_OPTIONS;
   optionSelected = false;
 
   constructor(private turnService: TurnService, private router: Router) {}
 
   onClick(): void {
+    this.turnService.configSelected = true;
     this.router.navigateByUrl('/play');
   }
 
-  onChange(value: number):void {
-    if (value === 0 ) { this.turnService.setInfinitiveTurns(true); }
-    this.turnService.setInitialTurns(value);
+  onChange(value: string): void {
+    if (value === '0') {
+      this.turnService.setInfinitiveTurns(true);
+    }
+    this.turnService.setInitialTurns(parseInt(value));
     this.optionSelected = true;
   }
 }

@@ -18,6 +18,17 @@
 
     .hit {
         background-color: $lavander-pink-hover;
+        pointer-events: none;
+    }
+
+    .hit-ship {
+        background-color: $pine;
+        opacity: 0.8;
+        pointer-events: none;
+    }
+    
+    .gameover {
+        pointer-events: none;
     }
 }
 

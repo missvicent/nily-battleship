@@ -10,8 +10,6 @@ export class ConfigurationComponent {
   options = GAME_OPTIONS;
   customConfig = '';
 
-  constructor() {}
-
   onChange(value: string): void {
     this.customConfig = value;
   }

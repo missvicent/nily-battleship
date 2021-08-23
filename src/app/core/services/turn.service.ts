@@ -4,12 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TurnService {
-  
+  configSelected = false;
   initialTurns = 0;
   infinitiveTurns = false;
   score: number;
-
-  constructor() {}
 
   setInitialTurns(turns: number): void {
     this.initialTurns = turns;
@@ -21,5 +19,9 @@ export class TurnService {
 
   getScore(): number {
     return this.score;
+  }
+
+  doesTheUserSelectAGameConfig(): boolean {
+    return this.configSelected;
   }
 }

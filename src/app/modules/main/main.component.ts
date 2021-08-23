@@ -9,10 +9,15 @@ import { IBoard } from 'src/app/shared/models/board';
 })
 export class MainComponent implements OnInit {
   board: IBoard[];
-  
+  gameOver = false;
+
   constructor(private boardService: BoardService) {}
 
   ngOnInit(): void {
     this.board = this.boardService.board;
+  }
+
+  isGameOver(event: boolean): void {
+    this.gameOver = event;
   }
 }

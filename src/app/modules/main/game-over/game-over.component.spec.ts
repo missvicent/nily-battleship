@@ -10,7 +10,7 @@ describe('GameOverComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [GameOverComponent],
     }).compileComponents();
-  });
+  }); 
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GameOverComponent);

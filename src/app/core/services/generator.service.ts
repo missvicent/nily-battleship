@@ -5,7 +5,6 @@ import randomInteger from 'random-int';
   providedIn: 'root',
 })
 export class GeneratorService {
-
   getLetter(value: number): string {
     return String.fromCharCode(97 + value);
   }

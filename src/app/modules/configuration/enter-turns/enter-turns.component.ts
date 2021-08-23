@@ -14,10 +14,12 @@ export class EnterTurnsComponent {
 
   onClick(): void {
     this.turnService.setInitialTurns(this.turns);
+    this.turnService.configSelected = true;
+    this.turnService.infinitiveTurns = false;
     this.router.navigateByUrl('/play');
   }
 
   shouldItBeDisabled(errors: any): boolean {
-    return errors || this.turns <= 0 || (this.turns).toString().charAt(0) === '0';
+    return errors || this.turns <= 0 || this.turns.toString().charAt(0) === '0';
   }
 }

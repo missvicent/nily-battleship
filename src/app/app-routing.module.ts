@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GameGuard } from './core/guards/game.guard';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
 
 const routes: Routes = [
@@ -14,10 +15,12 @@ const routes: Routes = [
   {
     path: 'game',
     loadChildren: () => import('./modules/game/game.module').then((m) => m.GameModule),
+    canActivate: [GameGuard],
   },
   {
     path: 'play',
     loadChildren: () => import('./modules/main/main.module').then((m) => m.MainModule),
+    canActivate: [GameGuard],
   },
   {
     path: '**',
