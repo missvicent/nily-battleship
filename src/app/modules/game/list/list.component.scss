@@ -1,0 +1,32 @@
+@import "~src/styles/styles.scss";
+
+.list-container {
+    @include background-config;
+    background-image: url('/assets/beach.jpg');
+
+
+    .list {
+        height: 300px;
+        overflow-y: scroll;
+        padding-top: 2rem;
+    }
+
+    .list-header {
+        th {
+            font-size: 1.725rem;
+            padding: 2rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .item {
+        font-size: 1.275rem;
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        padding: 1rem;
+        text-transform: uppercase;
+    }
+}

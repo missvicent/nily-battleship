@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardService } from 'src/app/core/services/board.service';
 import { IBoard } from 'src/app/shared/models/board';
+import { IGameData } from 'src/app/shared/models/options';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
   board: IBoard[];
-  gameOver = false;
+  gameData: IGameData;
 
   constructor(private boardService: BoardService) {}
 
@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
     this.board = this.boardService.board;
   }
 
-  isGameOver(event: boolean): void {
-    this.gameOver = event;
+  isGameOver(event: IGameData): void {
+    this.gameData = event;
   }
 }

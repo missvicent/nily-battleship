@@ -1,5 +1,11 @@
 @import "variables";
 
+@mixin basic {
+    background-color: $lavander-pink-hover;
+    margin: 0 auto;
+    width: 100%;
+}
+
 @mixin background {
     @include basic;
     min-width: 300px;
@@ -12,8 +18,13 @@
     max-width: 260px;
 }
 
-@mixin basic {
-    background-color: $lavander-pink-hover;
-    margin: 0 auto;
+@mixin background-config {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $beige;
+    height: 100vh;
+    text-align: center;
     width: 100%;
 }

@@ -7,14 +7,17 @@
         align-self: center;
         color: $white;
         display: flex;
-        font-size: 3rem;
+        font-size: 2.5rem;
+        line-height: 3rem;
         margin: 0;
         opacity: 0.3;
     }
     .play-again {
         text-align: end;
     }
-    .play-button {
-        margin: 0.5rem;
+    .wrapper {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
     }
 }

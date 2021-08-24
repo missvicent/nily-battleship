@@ -1,20 +1,11 @@
-<div class="game" fxLayout="row" fxLayoutAlign="center center">
+<div class="game" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
     <div fxFlex="100">
-        <p class="game-over">GAME OVER</p>
+        <p class="game-over">{{gameData.win ? 'YOU ARE THE WINNER !!!' : 'GAME OVER'}}</p>
     </div>
     <div fxFlex="100" class="play-again">
-        <button 
-            type="button"
-            mat-raised-button color="basic" 
-            (click)="onClick('game/list')">
-            GAMES
-        </button>
-        <button 
-            class="play-button"
-            type="button"
-            mat-raised-button color="accent" 
-            (click)="onClick('configuration')">
-            PLAY AGAIN !!!
-    </button>
+        <div class="wrapper">
+            <app-play-button text="Game List" link="game/list" color="basic"></app-play-button>
+            <app-play-button text=" PLAY A GAME !!!" link="configuration"></app-play-button>
+        </div>
     </div>
 </div>

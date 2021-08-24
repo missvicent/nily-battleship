@@ -1,14 +1,7 @@
 @import "~src/styles/styles.scss";
 .board-container {
-    height: 100vh;
-    width: 100%;
-    text-align: center;
+    @include background-config;
     background-image: url('/assets/ocean.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: $beige;
 
     .board {
         height: 75vh;

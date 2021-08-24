@@ -16,10 +16,10 @@ export const LEVEL_OPTIONS = [
   },
   {
     name: 'Medium',
-    value: 50,
+    value: 100,
   },
   {
     name: 'Difficult',
-    value: 100,
+    value: 50,
   },
 ];

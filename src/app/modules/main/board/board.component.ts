@@ -3,10 +3,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { BoardService } from 'src/app/core/services/board.service';
 import { EdgeService } from 'src/app/core/services/edge.service';
 import { GeneratorService } from 'src/app/core/services/generator.service';
-import { ShipService } from 'src/app/core/services/ship.service';
+import { HelperService } from 'src/app/core/services/helper.service';
 import { TurnService } from 'src/app/core/services/turn.service';
 import { NotificationComponent } from 'src/app/shared/components/notification/notification.component';
 import { IBoard, ITile } from 'src/app/shared/models/board';
+import { IGameData } from 'src/app/shared/models/options';
 import { IShip } from 'src/app/shared/models/ships';
 
 @Component({
@@ -16,8 +17,8 @@ import { IShip } from 'src/app/shared/models/ships';
 })
 export class BoardComponent implements OnInit {
   @Input() board: IBoard;
-  @Output() gameIsOver = new EventEmitter<boolean>();
-  
+  @Output() gameData = new EventEmitter<IGameData>();
+
   gameOver = false;
   size = 10;
   ships = [];
@@ -26,14 +27,13 @@ export class BoardComponent implements OnInit {
   turnsCounter = 0;
   unlimitedTurns = false;
 
-
   constructor(
     private _snackBar: MatSnackBar,
     private edgeService: EdgeService,
     private generatorService: GeneratorService,
+    private helperService: HelperService,
     private boardService: BoardService,
-    private turnService: TurnService,
-    private shipService: ShipService
+    private turnService: TurnService
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +57,15 @@ export class BoardComponent implements OnInit {
     return ship.hit === ship.size;
   }
 
+  emitGameData(): void {
+    const shipsAlive = this.ships.filter((elem) => elem.destroyed === false);
+    const win = shipsAlive.length === 0;
+    this.gameOver = this.isGameOver(shipsAlive);
+    this.score = this.ships.filter((ship) => ship.destroyed === true).length;
+    const gameData = this.helperService.formatGameData(win, this.gameOver, shipsAlive.length);
+    this.gameData.emit(gameData);
+  }
+
   getLetter(value: number): string {
     return this.generatorService.getLetter(value).toUpperCase();
   }
@@ -66,20 +75,17 @@ export class BoardComponent implements OnInit {
   }
 
   onClick(tile: ITile, col: number, row: number): void {
+    this.turnsCounter -= 1;
     this.board[col][row].status = 'hit';
     const shipHitId = this.ships.findIndex((arr) => arr.tiles.includes(tile));
     this.updateShipInfo(shipHitId, col, row);
-    this.turnsCounter -= 1;
-    this.score = this.ships.filter((ship) => ship.destroyed === true).length;
-    const shipsAlive = this.ships.filter((elem) => elem.destroyed === false);
     this.showMsg(this.ships[shipHitId], shipHitId);
-    this.gameOver = this.isGameOver(shipsAlive);
-    this.gameIsOver.emit(this.gameOver);
+    this.emitGameData();
   }
 
   openSnackBar(message: string, type: string) {
     this._snackBar.openFromComponent(NotificationComponent, {
-      duration: 2 * 1000,
+      duration: 300,
       data: message,
       direction: 'ltr',
       horizontalPosition: 'right',
@@ -89,8 +95,8 @@ export class BoardComponent implements OnInit {
   }
 
   showMsg(ship: IShip, hit: number): void {
-    const msg = this.shipService.getHitMsg(ship, hit);
-    const type = this.shipService.getMsgStyle(msg);
+    const msg = this.helperService.getHitMsg(ship, hit);
+    const type = this.helperService.getMsgStyle(msg);
     this.openSnackBar(msg, type);
   }
 

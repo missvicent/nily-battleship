@@ -1,4 +1,4 @@
-<ng-container *ngIf="gameOver">
-    <app-game-over></app-game-over>
+<ng-container *ngIf="gameData?.gameover">
+    <app-game-over [gameData]="gameData"></app-game-over>
 </ng-container>
-<app-board [board]="board" (gameIsOver)="isGameOver($event)"></app-board>
+<app-board [board]="board" (gameData)="isGameOver($event)"></app-board>

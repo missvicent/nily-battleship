@@ -9,6 +9,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PlayButtonComponent } from './components/play-button/play-button.component';
 
 const MODULES = [
   CommonModule,
@@ -23,7 +24,7 @@ const MODULES = [
 ];
 
 @NgModule({
-  declarations: [ErrorMsgComponent, NotificationComponent],
+  declarations: [ErrorMsgComponent, NotificationComponent, PlayButtonComponent],
   imports: MODULES,
   exports: [
     CommonModule,
@@ -36,6 +37,7 @@ const MODULES = [
     MatRadioModule,
     ErrorMsgComponent,
     MatSnackBarModule,
+    PlayButtonComponent,
   ],
 })
 export class SharedModule {}

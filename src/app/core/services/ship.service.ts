@@ -37,28 +37,6 @@ export class ShipService {
     return SHIPS_NAMES[size];
   }
 
-  getHitMsg(ship: IShip, hit: number): string {
-    if (ship?.destroyed) {
-      return `You destroyed a ${ship.name} 💀💀 !!!`;
-    }
-    if (hit > -1 && !ship.destroyed) {
-      return `You hit a ship 💣 !!!`;
-    }
-    if (hit === -1) {
-      return `You miss a shot 😔`;
-    }
-  }
-
-  getMsgStyle(msg: string): string {
-    if (msg.includes('hit')) {
-      return `notification-hit`;
-    }
-    if (msg.includes('destroyed')) {
-      return `notification-destroyed`;
-    }
-    return `notification-miss`;
-  }
-
   selectShipSize(value: number): number {
     if (value >= 10) {
       return 4;

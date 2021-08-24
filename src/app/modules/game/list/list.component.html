@@ -1,1 +1,24 @@
-<p>list works!</p>
+<div class="list-container" fxLayout="column" fxLayoutAlign="center center">
+    <div class="title">{{gameList.length >= 1 ? 'Game List' : 'GAME LIST IS EMPTY'}}</div>  
+    <app-play-button text=" PLAY A GAME !!!" link="configuration"></app-play-button>
+    <div [ngClass]="{'list': gameList.length > 0}">
+        <table *ngIf="gameList.length >= 1">
+            <thead class="list-header">
+                <tr>
+                    <th>Date</th>
+                    <th>Turns</th>
+                    <th>score</th>
+                    <th>Result</th>
+                </tr>
+        </thead>
+            <tbody> 
+            <tr *ngFor="let list of gameList">
+                <td class="item">{{list.date}}</td>
+                <td class="item">{{list.turns}}</td>
+                <td class="item">{{list.score}}</td>
+                <td class="item">{{list.win ? 'WON' : 'LOST'}}</td>
+            </tr>
+            </tbody>
+        </table> 
+    </div>
+</div>
