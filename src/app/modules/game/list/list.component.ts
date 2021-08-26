@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TurnService } from 'src/app/core/services/turn.service';
+import { TurnService } from 'src/app/core/services/turn/turn.service';
 import { IList } from 'src/app/shared/models/options';
 
 @Component({

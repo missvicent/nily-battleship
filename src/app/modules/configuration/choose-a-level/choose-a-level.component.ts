@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LEVEL_OPTIONS } from 'src/app/core/mocks/options';
-import { TurnService } from 'src/app/core/services/turn.service';
+import { TurnService } from 'src/app/core/services/turn/turn.service';
 
 @Component({
   selector: 'app-choose-a-level',

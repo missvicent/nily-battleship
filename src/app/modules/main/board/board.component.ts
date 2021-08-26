@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BoardService } from 'src/app/core/services/board.service';
-import { EdgeService } from 'src/app/core/services/edge.service';
-import { GeneratorService } from 'src/app/core/services/generator.service';
-import { HelperService } from 'src/app/core/services/helper.service';
-import { TurnService } from 'src/app/core/services/turn.service';
+import { BoardService } from 'src/app/core/services/board/board.service';
+import { EdgeService } from 'src/app/core/services/edge/edge.service';
+import { GeneratorService } from 'src/app/core/services/generator/generator.service';
+import { HelperService } from 'src/app/core/services/helper/helper.service';
+import { TurnService } from 'src/app/core/services/turn/turn.service';
 import { NotificationComponent } from 'src/app/shared/components/notification/notification.component';
 import { IBoard, ITile } from 'src/app/shared/models/board';
 import { IGameData } from 'src/app/shared/models/options';

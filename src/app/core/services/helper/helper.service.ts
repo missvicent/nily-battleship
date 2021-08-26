@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IGameData } from 'src/app/shared/models/options';
 import { IShip } from 'src/app/shared/models/ships';
-import { BoardService } from './board.service';
+import { BoardService } from '../board/board.service';
 
 @Injectable({
   providedIn: 'root',

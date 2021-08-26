@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IBoard, ITile } from 'src/app/shared/models/board';
-import { ShipService } from './ship.service';
-import { TileService } from './tile.service';
+import { ShipService } from '../ship/ship.service';
+import { TileService } from '../tile/tile.service';
 
 @Injectable({
   providedIn: 'root',

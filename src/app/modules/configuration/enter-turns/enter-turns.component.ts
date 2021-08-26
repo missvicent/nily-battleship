@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TurnService } from 'src/app/core/services/turn.service';
+import { TurnService } from 'src/app/core/services/turn/turn.service';
 
 @Component({
   selector: 'app-enter-turns',

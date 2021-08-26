@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IBoard, ITile } from 'src/app/shared/models/board';
-import { EdgeService } from './edge.service';
 import * as _ from 'lodash';
 import { IShip } from 'src/app/shared/models/ships';
-import { SHIPS_NAMES } from '../mocks/ships';
+import { SHIPS_NAMES } from '../../mocks/ships';
+import { EdgeService } from '../edge/edge.service';
 
 @Injectable({
   providedIn: 'root',

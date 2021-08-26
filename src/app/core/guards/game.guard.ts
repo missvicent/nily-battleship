@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { TurnService } from '../services/turn.service';
+import { TurnService } from '../services/turn/turn.service';
 
 @Injectable({
   providedIn: 'root',

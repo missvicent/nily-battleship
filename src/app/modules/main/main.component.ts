@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardService } from 'src/app/core/services/board.service';
+import { BoardService } from 'src/app/core/services/board/board.service';
 import { IBoard } from 'src/app/shared/models/board';
 import { IGameData } from 'src/app/shared/models/options';
 

@@ -1,7 +1,7 @@
-import { EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { TurnService } from 'src/app/core/services/turn.service';
+import { TurnService } from 'src/app/core/services/turn/turn.service';
 
 @Component({
   selector: 'app-score',

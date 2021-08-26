@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TurnService } from 'src/app/core/services/turn.service';
+import { TurnService } from 'src/app/core/services/turn/turn.service';
 import { DatePipe } from '@angular/common';
 import { IGameData } from 'src/app/shared/models/options';
 
