@@ -6,10 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PlayButtonComponent } from './components/play-button/play-button.component';
+import { OptionsBarComponent } from './components/options-bar/options-bar.component';
 
 const MODULES = [
   CommonModule,
@@ -21,10 +23,11 @@ const MODULES = [
   MatButtonModule,
   MatRadioModule,
   MatSnackBarModule,
+  MatToolbarModule
 ];
 
 @NgModule({
-  declarations: [ErrorMsgComponent, NotificationComponent, PlayButtonComponent],
+  declarations: [ErrorMsgComponent, NotificationComponent, PlayButtonComponent, OptionsBarComponent],
   imports: MODULES,
   exports: [
     CommonModule,
@@ -38,6 +41,8 @@ const MODULES = [
     ErrorMsgComponent,
     MatSnackBarModule,
     PlayButtonComponent,
+    MatToolbarModule,
+    OptionsBarComponent
   ],
 })
 export class SharedModule {}

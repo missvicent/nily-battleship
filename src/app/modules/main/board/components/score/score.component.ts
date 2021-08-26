@@ -1,6 +1,5 @@
 import { OnInit } from '@angular/core';
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { TurnService } from 'src/app/core/services/turn/turn.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class ScoreComponent implements OnInit {
 
   unlimitedTurns = false;
 
-  constructor(private router: Router, private turnService: TurnService) {}
+  constructor(private turnService: TurnService) {}
 
   ngOnInit(): void {
     this.unlimitedTurns = this.turnService.infinitiveTurns;

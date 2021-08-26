@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TurnService } from 'src/app/core/services/turn/turn.service';
 import { DatePipe } from '@angular/common';
 import { IGameData } from 'src/app/shared/models/options';
+import { BoardService } from 'src/app/core/services/board/board.service';
 
 @Component({
   selector: 'app-game-over',
@@ -12,7 +13,7 @@ import { IGameData } from 'src/app/shared/models/options';
 export class GameOverComponent {
   @Input() gameData: IGameData;
 
-  constructor(private turnService: TurnService, private datePipe: DatePipe) {}
+  constructor(private turnService: TurnService, private datePipe: DatePipe, private boardService: BoardService) {}
 
   ngOnInit(): void {
     const newDate = new Date();
@@ -26,6 +27,7 @@ export class GameOverComponent {
     this.turnService.initialTurns = 0;
     this.turnService.infinitiveTurns = false;
     this.turnService.configSelected = false;
+    this.boardService.ships = [];
   }
 
   addGameToList(date: Date, win: boolean, infinitiveTurns: boolean, initialTurns: number, score: number): void {
