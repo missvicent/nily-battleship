@@ -9,8 +9,7 @@
     "e2e": "ng e2e",
     "format:fix": "pretty-quick --staged",
     "precommit": "run-s format:fix lint",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "private": true,
   "dependencies": {
