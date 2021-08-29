@@ -10,9 +10,7 @@ describe('NotificationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NotificationComponent],
-      providers: [
-        { provide: MAT_SNACK_BAR_DATA, useValue: {} },
-      ]
+      providers: [{ provide: MAT_SNACK_BAR_DATA, useValue: {} }],
     }).compileComponents();
   });
 

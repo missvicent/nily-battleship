@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TurnService } from 'src/app/core/services/turn/turn.service';
 import { DatePipe } from '@angular/common';
 import { IGameData } from 'src/app/shared/models/options';
@@ -10,7 +10,7 @@ import { BoardService } from 'src/app/core/services/board/board.service';
   styleUrls: ['./game-over.component.scss'],
   providers: [DatePipe],
 })
-export class GameOverComponent {
+export class GameOverComponent implements OnInit {
   @Input() gameData: IGameData;
 
   constructor(private turnService: TurnService, private datePipe: DatePipe, private boardService: BoardService) {}

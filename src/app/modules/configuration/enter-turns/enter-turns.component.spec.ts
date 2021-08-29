@@ -11,16 +11,14 @@ import { EnterTurnsComponent } from './enter-turns.component';
 describe('EnterTurnsComponent', () => {
   let component: EnterTurnsComponent;
   let fixture: ComponentFixture<EnterTurnsComponent>;
-  let mockRouter = {
-    navigate: jasmine.createSpy('navigate')
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
   };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [EnterTurnsComponent, ErrorMsgComponent],
       imports: [FormsModule, MatFormFieldModule, MatInputModule, BrowserAnimationsModule],
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ]
+      providers: [{ provide: Router, useValue: mockRouter }],
     }).compileComponents();
   });
 

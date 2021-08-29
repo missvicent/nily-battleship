@@ -7,18 +7,15 @@ import { ChooseALevelComponent } from './choose-a-level.component';
 describe('ChooseALevelComponent', () => {
   let component: ChooseALevelComponent;
   let fixture: ComponentFixture<ChooseALevelComponent>;
-  let mockRouter = {
-    navigate: jasmine.createSpy('navigate')
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
   };
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ChooseALevelComponent],
       imports: [MatRadioModule],
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ]
-      
+      providers: [{ provide: Router, useValue: mockRouter }],
     }).compileComponents();
   });
 

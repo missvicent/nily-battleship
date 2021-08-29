@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit {
   unlimitedTurns = false;
 
   constructor(
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private edgeService: EdgeService,
     private generatorService: GeneratorService,
     private helperService: HelperService,
@@ -83,8 +83,8 @@ export class BoardComponent implements OnInit {
     this.emitGameData();
   }
 
-  openSnackBar(message: string, type: string) {
-    this._snackBar.openFromComponent(NotificationComponent, {
+  openSnackBar(message: string, type: string): void {
+    this.snackBar.openFromComponent(NotificationComponent, {
       duration: 300,
       data: message,
       direction: 'ltr',

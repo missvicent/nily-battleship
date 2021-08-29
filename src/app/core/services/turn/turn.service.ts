@@ -28,7 +28,7 @@ export class TurnService {
     return this.configSelected;
   }
 
-  addGameToList(game: IList) {
+  addGameToList(game: IList): void {
     this.gameList.push(game);
   }
 

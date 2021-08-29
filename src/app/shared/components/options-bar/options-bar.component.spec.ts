@@ -10,22 +10,17 @@ import { OptionsBarComponent } from './options-bar.component';
 describe('OptionsBarComponent', () => {
   let component: OptionsBarComponent;
   let fixture: ComponentFixture<OptionsBarComponent>;
-  let mockRouter = {
-    navigate: jasmine.createSpy('navigate')
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
   };
-  
+
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ OptionsBarComponent, PlayButtonComponent ],
-      imports: [
-        MatToolbarModule, SharedModule
-      ],
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-    .compileComponents();
+      declarations: [OptionsBarComponent, PlayButtonComponent],
+      imports: [MatToolbarModule, SharedModule],
+      providers: [{ provide: Router, useValue: mockRouter }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -9,18 +9,16 @@ import { WelcomeComponent } from './welcome.component';
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
-  let mockRouter = {
-    navigate: jasmine.createSpy('navigate')
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
   };
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [WelcomeComponent, PlayButtonComponent],
       imports: [SharedModule],
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ]
+      providers: [{ provide: Router, useValue: mockRouter }],
     }).compileComponents();
   });
 

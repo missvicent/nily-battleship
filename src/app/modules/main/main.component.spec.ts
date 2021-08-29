@@ -12,7 +12,7 @@ describe('MainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MainComponent, BoardComponent, OptionsBarComponent],
-      imports: [MatSnackBarModule]
+      imports: [MatSnackBarModule],
     }).compileComponents();
   });
 

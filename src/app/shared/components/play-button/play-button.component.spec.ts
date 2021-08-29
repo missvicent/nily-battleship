@@ -7,17 +7,15 @@ import { PlayButtonComponent } from './play-button.component';
 describe('PlayButtonComponent', () => {
   let component: PlayButtonComponent;
   let fixture: ComponentFixture<PlayButtonComponent>;
-  let mockRouter = {
-    navigate: jasmine.createSpy('navigate')
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [PlayButtonComponent],
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ],
+      providers: [{ provide: Router, useValue: mockRouter }],
     }).compileComponents();
   });
 

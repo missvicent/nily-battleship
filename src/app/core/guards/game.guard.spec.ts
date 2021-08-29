@@ -7,19 +7,16 @@ import { GameGuard } from './game.guard';
 describe('GameGuard', () => {
   let guard: GameGuard;
   let turnService: TurnService;
-  let mockRouter = {
-    navigateByUrl: jasmine.createSpy('navigateByUrl')
+  const mockRouter = {
+    navigateByUrl: jasmine.createSpy('navigateByUrl'),
   };
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ]
+      providers: [{ provide: Router, useValue: mockRouter }],
     });
     guard = TestBed.inject(GameGuard);
-    turnService = TestBed.inject(TurnService)
-
+    turnService = TestBed.inject(TurnService);
   });
 
   it('should be created', () => {

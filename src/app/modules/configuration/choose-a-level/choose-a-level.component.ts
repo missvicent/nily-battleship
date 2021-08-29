@@ -23,7 +23,7 @@ export class ChooseALevelComponent {
     if (value === '0') {
       this.turnService.setInfinitiveTurns(true);
     }
-    this.turnService.setInitialTurns(parseInt(value));
+    this.turnService.setInitialTurns(parseInt(value, 10));
     this.optionSelected = true;
   }
 }

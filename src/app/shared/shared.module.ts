@@ -23,7 +23,7 @@ const MODULES = [
   MatButtonModule,
   MatRadioModule,
   MatSnackBarModule,
-  MatToolbarModule
+  MatToolbarModule,
 ];
 
 @NgModule({
@@ -42,7 +42,7 @@ const MODULES = [
     MatSnackBarModule,
     PlayButtonComponent,
     MatToolbarModule,
-    OptionsBarComponent
+    OptionsBarComponent,
   ],
 })
 export class SharedModule {}
