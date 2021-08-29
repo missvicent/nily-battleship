@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { OptionsBarComponent } from 'src/app/shared/components/options-bar/options-bar.component';
+import { BoardComponent } from './board/board.component';
 
 import { MainComponent } from './main.component';
 
@@ -8,7 +11,8 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainComponent],
+      declarations: [MainComponent, BoardComponent, OptionsBarComponent],
+      imports: [MatSnackBarModule]
     }).compileComponents();
   });
 

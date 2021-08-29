@@ -1,6 +1,9 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { BoardComponent } from './board.component';
+import { ScoreComponent } from './components/score/score.component';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -8,7 +11,9 @@ describe('BoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BoardComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [BoardComponent, ScoreComponent],
+      imports: [MatSnackBarModule],
     }).compileComponents();
   });
 

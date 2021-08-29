@@ -19,10 +19,10 @@ export class GameOverComponent {
     const newDate = new Date();
     this.addGameToList(
       newDate,
-      this.gameData.win,
+      this.gameData?.win,
       this.turnService.infinitiveTurns,
       this.turnService.initialTurns,
-      this.gameData.score
+      this.gameData?.score
     );
     this.turnService.initialTurns = 0;
     this.turnService.infinitiveTurns = false;
