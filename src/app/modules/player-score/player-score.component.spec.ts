@@ -3,12 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { PlayButtonComponent } from 'src/app/shared/components/play-button/play-button.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PlayerScoreComponent } from './player-score.component';
 
-import { WelcomeComponent } from './welcome.component';
-
-describe('WelcomeComponent', () => {
-  let component: WelcomeComponent;
-  let fixture: ComponentFixture<WelcomeComponent>;
+describe('ListComponent', () => {
+  let component: PlayerScoreComponent;
+  let fixture: ComponentFixture<PlayerScoreComponent>;
   const mockRouter = {
     navigate: jasmine.createSpy('navigate'),
   };
@@ -16,14 +15,14 @@ describe('WelcomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [WelcomeComponent, PlayButtonComponent],
+      declarations: [PlayerScoreComponent, PlayButtonComponent],
       imports: [SharedModule],
       providers: [{ provide: Router, useValue: mockRouter }],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WelcomeComponent);
+    fixture = TestBed.createComponent(PlayerScoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

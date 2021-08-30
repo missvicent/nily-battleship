@@ -4,10 +4,10 @@ import { IList } from 'src/app/shared/models/options';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  templateUrl: './player-score.component.html',
+  styleUrls: ['./player-score.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class PlayerScoreComponent implements OnInit {
   gameList: IList[];
   constructor(private turnService: TurnService) {}
 

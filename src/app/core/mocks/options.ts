@@ -19,7 +19,7 @@ export const LEVEL_OPTIONS = [
     value: 100,
   },
   {
-    name: 'Difficult',
+    name: 'Hard',
     value: 50,
   },
 ];

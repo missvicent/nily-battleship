@@ -6,19 +6,19 @@ import { WelcomeComponent } from './modules/welcome/welcome.component';
 const routes: Routes = [
   {
     path: '',
-    component: WelcomeComponent,
+    loadChildren: () => import('./modules/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
     path: 'configuration',
     loadChildren: () => import('./modules/configuration/configuration.module').then((m) => m.ConfigurationModule),
   },
   {
-    path: 'game',
-    loadChildren: () => import('./modules/game/game.module').then((m) => m.GameModule),
+    path: 'score',
+    loadChildren: () => import('./modules/player-score/player-score.module').then((m) => m.PlayerScoreModule),
   },
   {
     path: 'play',
-    loadChildren: () => import('./modules/main/main.module').then((m) => m.MainModule),
+    loadChildren: () => import('./modules/play/play.module').then((m) => m.PlayModule),
     canActivate: [GameGuard],
   },
   {

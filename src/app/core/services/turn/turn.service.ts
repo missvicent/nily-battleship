@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { IList } from 'src/app/shared/models/options';
 
@@ -12,27 +11,27 @@ export class TurnService {
   gameList: IList[] = [];
   score: number;
 
-  setInitialTurns(turns: number): void {
-    this.initialTurns = turns;
-  }
-
-  setInfinitiveTurns(value: boolean): void {
-    this.infinitiveTurns = value;
-  }
-
-  getScore(): number {
-    return this.score;
+  addGameToList(game: IList): void {
+    this.gameList.push(game);
   }
 
   doesTheUserSelectAGameConfig(): boolean {
     return this.configSelected;
   }
 
-  addGameToList(game: IList): void {
-    this.gameList.push(game);
+  getScore(): number {
+    return this.score;
   }
 
   getGameList(): IList[] {
     return this.gameList;
+  }
+
+  setInitialTurns(turns: number): void {
+    this.initialTurns = turns;
+  }
+
+  setInfinitiveTurns(value: boolean): void {
+    this.infinitiveTurns = value;
   }
 }

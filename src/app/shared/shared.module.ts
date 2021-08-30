@@ -38,10 +38,10 @@ const MODULES = [
     MatInputModule,
     MatButtonModule,
     MatRadioModule,
-    ErrorMsgComponent,
     MatSnackBarModule,
-    PlayButtonComponent,
     MatToolbarModule,
+    ErrorMsgComponent,
+    PlayButtonComponent,
     OptionsBarComponent,
   ],
 })

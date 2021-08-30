@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IBoard, ITile } from 'src/app/shared/models/board';
+import { ITile } from 'src/app/shared/models/board';
 import { ShipService } from '../ship/ship.service';
 import { TileService } from '../tile/tile.service';
 
@@ -29,9 +29,6 @@ export class BoardService {
     });
   }
 
-  getBoard(): IBoard[] {
-    return this.board;
-  }
   assignBoardTiles(shipSize: number, orientation: boolean): any {
     const tile = this.tileService.chooseTile(this.board);
     const isThereACollision = this.shipService.checkCollision(this.board, shipSize, orientation, tile);

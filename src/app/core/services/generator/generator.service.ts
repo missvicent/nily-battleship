@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import randomInteger from 'random-int';
 
 @Injectable({
   providedIn: 'root',

@@ -4,10 +4,10 @@ import { IBoard } from 'src/app/shared/models/board';
 import { IGameData } from 'src/app/shared/models/options';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
+  selector: 'app-play',
+  templateUrl: './play.component.html',
 })
-export class MainComponent implements OnInit {
+export class PlayComponent implements OnInit {
   board: IBoard[];
   gameData: IGameData;
 
