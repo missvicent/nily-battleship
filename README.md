@@ -27,7 +27,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ng build
 ```
 
-## Run lint
+## Run lint #
 Run `npm run lint` to execute the linting.
 
 ```bash
